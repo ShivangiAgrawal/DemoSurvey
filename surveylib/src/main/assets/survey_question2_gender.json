@@ -1,0 +1,27 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "What is your gender?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "FEMALE",
+          "type": "TEXT_VIEW",
+          "uiType": "RECTANGLE_SINGLE_SELECTION",
+          "orientation": "horizontal"
+        },
+        {
+          "label": "MALE",
+          "type": "TEXT_VIEW",
+          "uiType": "RECTANGLE_SINGLE_SELECTION",
+          "orientation": "horizontal"
+        }
+      ]
+    }
+  ]
+}

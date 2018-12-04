@@ -1,0 +1,26 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "What is your zipcode?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "*Zip",
+          "type": "TEXT_INPUT_RECTANGLE_BOX",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        }
+      ]
+    }
+  ]
+}

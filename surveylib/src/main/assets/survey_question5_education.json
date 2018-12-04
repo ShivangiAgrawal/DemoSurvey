@@ -1,0 +1,57 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "What is the highest level of education you have completed?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "9th grade or lower",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Some high school",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "High school graduate or equivalent",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Completed some college, no degree",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Associates' degree or Vocational Equivalent",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "4-year College degree(such as B.A., B.S.)",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Graduate degree or higher",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        }
+      ]
+    }
+  ]
+}

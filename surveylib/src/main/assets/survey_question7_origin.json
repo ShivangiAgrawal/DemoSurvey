@@ -1,0 +1,57 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Are you of Hispanic, Latino or Spanish origin?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "No, not Spanish, Hispanic, Latino",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Yes, Mexican, Mexican American, Chicano",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Yes, Central American",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Yes, South American",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Yes, Dominican, Puerto Rican, Cuban",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Yes, Other Spanish/Hispanic/Latino",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Prefer not to answer",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        }
+      ]
+    }
+  ]
+}

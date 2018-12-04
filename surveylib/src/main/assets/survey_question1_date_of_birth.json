@@ -1,0 +1,23 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Enter your date of birth",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "Select Date",
+          "type": "LIST",
+          "uiType": "DATE_PICKER",
+          "orientation": "vertical"
+        }
+      ],
+      "questions": [
+      ]
+    }
+  ]
+}

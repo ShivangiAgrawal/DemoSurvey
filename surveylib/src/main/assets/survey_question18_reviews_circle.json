@@ -1,0 +1,56 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "How do you feel about Lay's potato chips?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label":"Very Unsatisfied",
+          "type":"TEXT_VIEW_IMAGE_VIEW",
+          "uiType":"CIRCLE_SINGLE_SELECTION",
+          "orientation":"horizontal"
+        },
+        {
+          "label":"Unsatisfied",
+          "type":"TEXT_VIEW_IMAGE_VIEW",
+          "uiType":"CIRCLE_SINGLE_SELECTION",
+          "orientation":"horizontal"
+        },
+        {
+          "label":"Not Certain",
+          "type":"TEXT_VIEW_IMAGE_VIEW",
+          "uiType":"CIRCLE_SINGLE_SELECTION",
+          "orientation":"horizontal"
+        },
+        {
+          "label":"Satisfied",
+          "type":"TEXT_VIEW_IMAGE_VIEW",
+          "uiType":"CIRCLE_SINGLE_SELECTION",
+          "orientation":"horizontal"
+        },
+        {
+          "label":"Very_Satisfied",
+          "type":"TEXT_VIEW_IMAGE_VIEW",
+          "uiType":"CIRCLE_SINGLE_SELECTION",
+          "orientation":"horizontal"
+        }
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "Why do you feel that way?",
+          "type": "TEXT_INPUT",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        }
+      ]
+    }
+  ]
+}

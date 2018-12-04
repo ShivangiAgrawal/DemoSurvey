@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DemoSurvey</string>
+    <string name="drag_drop_description">Single tap to expand. Double tap to select</string>
+</resources>

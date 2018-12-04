@@ -1,0 +1,135 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Do the following statements describe Lay's potato chips?",
+      "type": "List",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "VERY CRUNCHY",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_VIEW",
+          "orientation": "vertical",
+          "options": [
+            {
+              "label":"Agree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+            },
+            {
+              "label":"Disagree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            },
+            {
+              "label":"Don't Know",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+            }
+          ]
+        },
+        {
+          "quesId": 122,
+          "label": "QUALITY INGREDIENTS",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_VIEW",
+          "orientation": "vertical",
+          "options": [
+            {
+              "label":"Agree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            },
+            {
+              "label":"Disagree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            },
+            {
+              "label":"Don't Know",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            }
+          ]
+        },
+        {
+          "quesId": 123,
+          "label": "UNIQUE FLAVOURS",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_VIEW",
+          "orientation": "vertical",
+          "options": [
+            {
+              "label":"Agree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            },
+            {
+              "label":"Disagree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            },
+            {
+              "label":"Don't Know",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            }
+          ]
+        },
+        {
+          "quesId": 124,
+          "label": "ALWAYS FRESH",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_VIEW",
+          "orientation": "vertical",
+          "options": [
+            {
+              "label":"Agree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            },
+            {
+              "label":"Disagree",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            },
+            {
+              "label":"Don't Know",
+              "type":"TEXT_VIEW",
+              "uiType":"RECTANGLE_SINGLE_SELECTION",
+              "orientation":"horizontal"
+
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

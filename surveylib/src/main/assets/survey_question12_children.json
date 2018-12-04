@@ -1,0 +1,105 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "How many children are in your household?",
+      "type": "List",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "0-5 Years old",
+          "type": "TEXT_VIEW",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ],
+          "questions": [
+            {
+              "quesId": 1211,
+              "label": "Male",
+              "type": "Increment/Decrement",
+              "uiType": "",
+              "orientation": "horizontal",
+              "options": [
+              ]
+            },
+            {
+              "quesId": 1212,
+              "label": "Female",
+              "type": "Increment/Decrement",
+              "uiType": "",
+              "orientation": "horizontal",
+              "options": [
+
+              ]
+            }
+          ]
+        },
+        {
+          "quesId": 122,
+          "label": "6-12 Years old",
+          "type": "TEXT_VIEW",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ],
+          "questions": [
+            {
+              "quesId": 1221,
+              "label": "Male",
+              "type": "Increment/Decrement",
+              "uiType": "",
+              "orientation": "horizontal",
+              "options": [
+              ]
+            },
+            {
+              "quesId": 1222,
+              "label": "Female",
+              "type": "Increment/Decrement",
+              "uiType": "",
+              "orientation": "horizontal",
+              "options": [
+              ]
+            }
+          ]
+        },
+        {
+          "quesId": 123,
+          "label": "13-18 Years old",
+          "type": "TEXT_VIEW",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ],
+          "questions": [
+            {
+              "quesId": 1231,
+              "label": "Male",
+              "type": "Increment/Decrement",
+              "uiType": "",
+              "orientation": "horizontal",
+              "options": [
+              ]
+            },
+            {
+              "quesId": 1232,
+              "label": "Female",
+              "type": "Increment/Decrement",
+              "uiType": "",
+              "orientation": "horizontal",
+              "options": [
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

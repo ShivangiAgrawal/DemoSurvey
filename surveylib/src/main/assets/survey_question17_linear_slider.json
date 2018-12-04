@@ -1,0 +1,46 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Brand X packaging fits, or makes sense with eachof the following types of products:",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "Chocolate covered fruits/nuts",
+          "type": "SLIDER",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 122,
+          "label": "Potato Chips and chocolate",
+          "type": "SLIDER",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+
+          ]
+        },
+        {
+          "quesId": 123,
+          "label": "Chocolate covered chips",
+          "type": "SLIDER",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+
+          ]
+        }
+      ]
+    }
+  ]
+}

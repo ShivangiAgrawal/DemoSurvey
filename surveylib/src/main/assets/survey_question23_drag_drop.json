@@ -1,0 +1,62 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Rank the following animals from your least favorite to most favorite",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "1",
+          "type": "DRAG_DROP",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 122,
+          "label": "2",
+          "type": "DRAG_DROP",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 123,
+          "label": "3",
+          "type": "DRAG_DROP",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 124,
+          "label": "4",
+          "type": "DRAG_DROP",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 125,
+          "label": "5",
+          "type": "DRAG_DROP",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Select all of the animals you would consider meeting",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_MULTIPLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_MULTIPLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_MULTIPLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_MULTIPLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_MULTIPLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_MULTIPLE_SELECTION",
+          "orientation": "vertical"
+        }
+      ],
+      "questions": [
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item >
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="oval">
+            <solid android:color="@color/colorLight" />
+        </shape>
+    </item>
+    <item
+        android:id="@+id/layer_list_img"
+        android:drawable="@drawable/icons_happy1_48" />
+</layer-list>

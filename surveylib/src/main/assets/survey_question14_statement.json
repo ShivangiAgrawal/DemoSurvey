@@ -1,0 +1,28 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Click on statement you like best.",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label":"When I am no longer rapping, I want to open up an ice cream parlour and call myself Scoop Dog.\n-Snoop Dogg",
+          "type":"TEXT_VIEW",
+          "uiType":"TEXT_SINGLE_SELECTION",
+          "orientation":"vertical"
+
+        },
+        {
+          "label":"My advice to you is not to inquire why or wither, bbut, just enjoy the ice cream while it's on your plate.\n-Thornton Wilder",
+          "type":"TEXT_VIEW",
+          "uiType":"TEXT_SINGLE_SELECTION",
+          "orientation":"vertical"
+        }
+      ]
+    }
+  ]
+}

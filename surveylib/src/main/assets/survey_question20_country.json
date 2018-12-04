@@ -1,0 +1,21 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "What country do you live in?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label":"Select Country",
+          "type":"LIST",
+          "uiType":"LIST_VIEW",
+          "orientation":"vertical"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Which of the religions do you most closely identify with?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "Agnostic",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Athiest/No Religious Affiliation",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Buddhist",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Christian (all denominations)",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Hindu",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Jewish",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Muslim",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Prefer not to answer",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Other",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        }
+      ]
+    }
+  ]
+}

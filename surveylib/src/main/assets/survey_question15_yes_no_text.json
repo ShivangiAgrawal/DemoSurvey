@@ -1,0 +1,27 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Are there children under 18 living in your household?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "YES",
+          "type": "TEXT_VIEW",
+          "uiType": "RECTANGLE_SINGLE_SELECTION",
+          "orientation": "horizontal"
+        },
+        {
+          "label": "NO",
+          "type": "TEXT_VIEW",
+          "uiType": "RECTANGLE_SINGLE_SELECTION",
+          "orientation": "horizontal"
+        }
+      ]
+    }
+  ]
+}

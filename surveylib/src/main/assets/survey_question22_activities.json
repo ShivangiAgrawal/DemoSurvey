@@ -1,0 +1,53 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "How many hours per day do you do the following activities/Numbers",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "Using Qualtribs Products",
+          "type": "TABLE_VIEW",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 122,
+          "label": "Walking the dog",
+          "type": "TABLE_VIEW",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 123,
+          "label": "Relaxing while Qualttics gathers data for you",
+          "type": "TABLE_VIEW",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 124,
+          "label": "Worrying about your next project",
+          "type": "TABLE_VIEW",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        }
+      ]
+    }
+  ]
+}

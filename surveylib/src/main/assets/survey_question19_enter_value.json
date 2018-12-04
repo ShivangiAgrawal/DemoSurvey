@@ -1,0 +1,26 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "How much money do you spend on pizza delivery per month? (Please enter a whole  dollar amount)",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "",
+          "type": "TEXT_INPUT_RECTANGLE_BOX",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        }
+      ]
+    }
+  ]
+}

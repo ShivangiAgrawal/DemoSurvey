@@ -1,0 +1,33 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Are you registered to vote?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "Yes",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "No",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "I'm not sure",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        }
+      ]
+    }
+  ]
+}

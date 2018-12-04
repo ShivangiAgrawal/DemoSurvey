@@ -1,0 +1,53 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Answer question here:",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+      ],
+      "questions": [
+        {
+          "quesId": 121,
+          "label": "Chocolate covered fruits",
+          "type": "RATING_BAR",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 122,
+          "label": "Chocolate covered nuts",
+          "type": "RATING_BAR",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 123,
+          "label": "Chocolate covered pretzals",
+          "type": "RATING_BAR",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        },
+        {
+          "quesId": 124,
+          "label": "Orange Chocolate slices",
+          "type": "RATING_BAR",
+          "uiType": "",
+          "orientation": "vertical",
+          "options": [
+          ]
+        }
+      ]
+    }
+  ]
+}

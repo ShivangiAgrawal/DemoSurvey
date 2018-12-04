@@ -1,0 +1,53 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Would you ever own a pet?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        },
+        {
+          "label": "",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        }
+      ],
+      "questions": [
+      ]
+    }
+  ]
+}

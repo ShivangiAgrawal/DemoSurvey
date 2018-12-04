@@ -1,0 +1,45 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "What is your relationship status?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "Single, never married",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Married",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Separated, divorced or widowed",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Domestic partnership",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Prefer not to answer",
+          "type": "TEXT_VIEW",
+          "uiType": "TEXT_SINGLE_SELECTION",
+          "orientation": "vertical"
+        }
+      ]
+    }
+  ]
+}
