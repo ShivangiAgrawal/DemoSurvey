@@ -8,7 +8,6 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputFilter;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Gravity;
@@ -16,11 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -37,11 +34,10 @@ import demo.com.demosurvey.models.DragPojo;
 import demo.com.demosurvey.models.OptionsPojo;
 import demo.com.demosurvey.models.QuestionPojo;
 import demo.com.demosurvey.utils.InflateViews;
-import demo.com.demosurvey.utils.InputFilterMinMax;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class NativeSurveyActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private String TAG = MainActivity.class.getSimpleName();
+    private String TAG = NativeSurveyActivity.class.getSimpleName();
     private LinearLayout mLinearLayout, mLinearSubQuestion1;
     private TextView mTvQuestion;
     private ArrayList<QuestionPojo> listQuestions = new ArrayList<>();
@@ -66,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_native_survey);
 
         if (surveyCount > 1) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -576,7 +572,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onClick(View view) {
                         setCountryList();
-                        dialog = InflateViews.inflateDialog(MainActivity.this, countryList, editTextCountry,
+                        dialog = InflateViews.inflateDialog(NativeSurveyActivity.this, countryList, editTextCountry,
                                 optionsPojo.getOptionsLabel());
                     }
                 });
