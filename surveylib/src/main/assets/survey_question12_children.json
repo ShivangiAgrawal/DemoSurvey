@@ -23,7 +23,7 @@
             {
               "quesId": 1211,
               "label": "Male",
-              "type": "Increment/Decrement",
+              "type": "INCREMENT/DECREMENT",
               "uiType": "",
               "orientation": "horizontal",
               "options": [
@@ -32,7 +32,7 @@
             {
               "quesId": 1212,
               "label": "Female",
-              "type": "Increment/Decrement",
+              "type": "INCREMENT/DECREMENT",
               "uiType": "",
               "orientation": "horizontal",
               "options": [
@@ -53,7 +53,7 @@
             {
               "quesId": 1221,
               "label": "Male",
-              "type": "Increment/Decrement",
+              "type": "INCREMENT/DECREMENT",
               "uiType": "",
               "orientation": "horizontal",
               "options": [
@@ -62,7 +62,7 @@
             {
               "quesId": 1222,
               "label": "Female",
-              "type": "Increment/Decrement",
+              "type": "INCREMENT/DECREMENT",
               "uiType": "",
               "orientation": "horizontal",
               "options": [
@@ -82,7 +82,7 @@
             {
               "quesId": 1231,
               "label": "Male",
-              "type": "Increment/Decrement",
+              "type": "INCREMENT/DECREMENT",
               "uiType": "",
               "orientation": "horizontal",
               "options": [
@@ -91,7 +91,7 @@
             {
               "quesId": 1232,
               "label": "Female",
-              "type": "Increment/Decrement",
+              "type": "INCREMENT/DECREMENT",
               "uiType": "",
               "orientation": "horizontal",
               "options": [

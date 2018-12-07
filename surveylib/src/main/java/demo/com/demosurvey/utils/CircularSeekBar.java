@@ -602,7 +602,7 @@ public class CircularSeekBar extends View {
         super.onDraw(canvas);
 
         canvas.translate(this.getWidth() / 2, this.getHeight() / 2);
-        Log.e("CircularSeekBar", "onDraw: " + mProgressDegrees);
+//        Log.e("CircularSeekBar", "onDraw: " + mProgressDegrees);
 
         canvas.drawPath(mCirclePath, mCirclePaint);
         canvas.drawPath(mCircleProgressPath, mCircleProgressGlowPaint);

@@ -1,15 +1,41 @@
 package demo.com.demosurvey.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 public class QuestionPojo {
-    int questionID;
-    String label;
-    String type;
-    String uiType;
-    String orientation;
-    ArrayList<OptionsPojo> listOptions;
-    ArrayList<QuestionPojo> listSubQuestions;
+
+    @SerializedName("quesId")
+    private int questionID;
+
+    @SerializedName("label")
+    private String label;
+
+    @SerializedName("type")
+    private String type;
+
+    @SerializedName("uiType")
+    private String uiType;
+
+    @SerializedName("orientation")
+    private String orientation;
+
+    @SerializedName("options")
+    private ArrayList<OptionsPojo> listOptions;
+
+    @SerializedName("questions")
+    private ArrayList<QuestionPojo> listSubQuestions;
+
+    private String answer;
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     public int getQuestionID() {
         return questionID;

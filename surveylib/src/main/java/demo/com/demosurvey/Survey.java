@@ -1,13 +1,21 @@
 package demo.com.demosurvey;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 import demo.com.demosurvey.models.QuestionPojo;
 
 public class Survey {
-    int surveyID;
-    String postUrl;
-    ArrayList<QuestionPojo> listQuestions;
+
+    @SerializedName("surveyId")
+    private int surveyID;
+
+    @SerializedName("postUrl")
+    private String postUrl;
+
+    @SerializedName("questions")
+    private  ArrayList<QuestionPojo> listQuestions;
 
     public int getSurveyID() {
         return surveyID;

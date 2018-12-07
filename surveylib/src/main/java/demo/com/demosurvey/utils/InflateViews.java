@@ -42,10 +42,6 @@ import demo.com.demosurvey.models.MultiSelectionPojo;
 public class InflateViews {
 
     private static String TAG = InflateViews.class.getSimpleName();
-    private static RecyclerView recyclerView;
-    private static int[] colorThumb =
-            new int[]{R.color.color_1, R.color.color_2, R.color.color_3, R.color.colorDarkGreen, R.color.colorDarkGreen1};
-
 
     public static TextView inflateTextView(Context context, int gravity, String label, int backGroundColor, int[] padding) {
         View view = LayoutInflater.from(context).inflate(R.layout.component_text_view, null);
@@ -97,7 +93,7 @@ public class InflateViews {
     private static Drawable getThumb(int progress, Context context) {
         View thumbView = LayoutInflater.from(context).inflate(R.layout.layout_seekbar_thumb, null, false);
         GradientDrawable gradientDrawable = (GradientDrawable) context.getResources().getDrawable(R.drawable.shape_circle_orange);
-        gradientDrawable.setColor(context.getResources().getColor(colorThumb[progress - 1]));
+        gradientDrawable.setColor(context.getResources().getColor(Utility.getColorsReviewCircles()[progress - 1]));
         gradientDrawable.mutate();
 
         LinearLayout layout_seekbar_thumb_linear_layout = (LinearLayout) thumbView.findViewById(R.id.layout_seekbar_thumb_linear_layout);
@@ -392,7 +388,7 @@ public class InflateViews {
 
     public static RecyclerView inflateRecyclerDragDrop(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.component_recycler_view, null);
-        recyclerView = view.findViewById(R.id.component_recycler_view_drag_drop_recycler);
+        RecyclerView recyclerView = view.findViewById(R.id.component_recycler_view_drag_drop_recycler);
         List<DragPojo> dragPojoList = new ArrayList<>();
         dragPojoList.add(new DragPojo(R.drawable.rabbit, false, false, null));
         dragPojoList.add(new DragPojo(R.drawable.cat, false, false, null));
@@ -412,7 +408,7 @@ public class InflateViews {
 
     public static RecyclerView inflateRecyclerMultiSelection(Context context, String type) {
         View view = LayoutInflater.from(context).inflate(R.layout.component_recycler_view, null);
-        recyclerView = view.findViewById(R.id.component_recycler_view_drag_drop_recycler);
+        RecyclerView recyclerView = view.findViewById(R.id.component_recycler_view_drag_drop_recycler);
         List<MultiSelectionPojo> multiSelectionPojoList = new ArrayList<>();
 
         if (type.equalsIgnoreCase("CIRCULAR_MULTIPLE_SELECTION")) {

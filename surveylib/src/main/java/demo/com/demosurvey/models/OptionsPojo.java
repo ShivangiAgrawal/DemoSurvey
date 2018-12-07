@@ -1,10 +1,19 @@
 package demo.com.demosurvey.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class OptionsPojo {
 
+    @SerializedName("label")
     String optionsLabel;
+
+    @SerializedName("type")
     String optionsType;
+
+    @SerializedName("uiType")
     String optionsUIType;
+
+    @SerializedName("orientation")
     String optionsOrientation;
 
     public String getOptionsLabel() {
