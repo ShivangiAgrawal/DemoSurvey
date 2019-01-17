@@ -1,0 +1,41 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Select the reason that most represents why someone would want to own a pet. (Pets)",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "Pets",
+          "type": "TEXT_VIEW",
+          "uiType": "CUSTOM_VIEW",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Affection",
+          "type": "TEXT_VIEW",
+          "uiType": "CUSTOM_VIEW",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Play",
+          "type": "TEXT_VIEW",
+          "uiType": "CUSTOM_VIEW",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Exercise",
+          "type": "TEXT_VIEW",
+          "uiType": "CUSTOM_VIEW",
+          "orientation": "vertical"
+        }
+      ],
+      "questions": [
+      ]
+    }
+  ]
+}

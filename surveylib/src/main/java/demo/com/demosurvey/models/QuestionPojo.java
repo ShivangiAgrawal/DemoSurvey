@@ -27,6 +27,8 @@ public class QuestionPojo {
     @SerializedName("questions")
     private ArrayList<QuestionPojo> listSubQuestions;
 
+    private ArrayList<String> listSubAnswers;
+
     private String answer;
 
     public String getAnswer() {
@@ -91,5 +93,13 @@ public class QuestionPojo {
 
     public void setListSubQuestions(ArrayList<QuestionPojo> listSubQuestions) {
         this.listSubQuestions = listSubQuestions;
+    }
+
+    public ArrayList<String> getListSubAnswers() {
+        return listSubAnswers;
+    }
+
+    public void setListSubAnswers(ArrayList<String> listSubAnswers) {
+        this.listSubAnswers = listSubAnswers;
     }
 }

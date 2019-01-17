@@ -16,6 +16,8 @@ public class OptionsPojo {
     @SerializedName("orientation")
     String optionsOrientation;
 
+    boolean isSelected;
+
     public String getOptionsLabel() {
         return optionsLabel;
     }
@@ -47,4 +49,13 @@ public class OptionsPojo {
     public void setOptionsOrientation(String optionsOrientation) {
         this.optionsOrientation = optionsOrientation;
     }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
 }

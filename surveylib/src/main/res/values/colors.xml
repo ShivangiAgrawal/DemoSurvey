@@ -22,4 +22,7 @@
     <color name="color_1">#F44336</color>
     <color name="color_2">#EF6C00</color>
     <color name="color_3">#FFC107</color>
+    <color name="color_custom_shape_blue">#035E9F</color>
+    <color name="color_custom_shape_red">#F44336</color>
+
 </resources>

@@ -1,0 +1,53 @@
+{
+  "surveyId": 111,
+  "postUrl": "lifetap//post/survey",
+  "questions": [
+    {
+      "quesId": 12,
+      "label": "Which Lay's chip flavours are LEAST and MOST appealing?",
+      "type": "TEXT_VIEW",
+      "uiType": "",
+      "orientation": "vertical",
+      "options": [
+        {
+          "label": "",
+          "type": "TEXT_VIEW",
+          "uiType": "VIEW_RECTANGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Salt and Vinegar",
+          "type": "TEXT_VIEW",
+          "uiType": "VIEW_RECTANGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Classic",
+          "type": "TEXT_VIEW",
+          "uiType": "VIEW_RECTANGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Flamin' Hot",
+          "type": "TEXT_VIEW",
+          "uiType": "VIEW_RECTANGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Sour Cream and Onion",
+          "type": "TEXT_VIEW",
+          "uiType": "VIEW_RECTANGLE_SELECTION",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Sweet Southern Heat BBQ",
+          "type": "TEXT_VIEW",
+          "uiType": "VIEW_RECTANGLE_SELECTION",
+          "orientation": "vertical"
+        }
+      ],
+      "questions": [
+      ]
+    }
+  ]
+}

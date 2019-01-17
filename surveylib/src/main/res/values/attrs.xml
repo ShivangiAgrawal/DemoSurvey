@@ -24,6 +24,16 @@
         <attr name="end_angle" format="float" />
         <attr name="circle_fill" format="color" />
         <attr name="pointer_radius_additional" format="dimension" />
+        <attr name="text_center" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="TransparentImageView" >
+        <attr name="label" format="string"/>
+        <attr name="noOfSides" format="integer"/>
+        <attr name="radius" format="dimension"/>
+        <attr name="color" format="color"/>
+        <attr name="imgUrl" format="string"/>
+        <attr name="imgRotation" format="float"/>
     </declare-styleable>
 
 </resources>

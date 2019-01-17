@@ -10,37 +10,49 @@
       "orientation": "vertical",
       "options": [
         {
-          "label": "",
+          "label": "Press and rotate circle to your rating",
           "type": "",
           "uiType": "CIRCULAR_SLIDER",
           "orientation": "vertical"
         },
         {
-          "label": "",
+          "label": "Not at all",
           "type": "",
           "uiType": "CIRCULAR_SLIDER",
           "orientation": "vertical"
         },
         {
-          "label": "",
+          "label": "2",
           "type": "",
           "uiType": "CIRCULAR_SLIDER",
           "orientation": "vertical"
         },
         {
-          "label": "",
+          "label": "3",
           "type": "",
           "uiType": "CIRCULAR_SLIDER",
           "orientation": "vertical"
         },
         {
-          "label": "",
+          "label": "A little",
           "type": "",
           "uiType": "CIRCULAR_SLIDER",
           "orientation": "vertical"
         },
         {
-          "label": "",
+          "label": "5",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        },
+        {
+          "label": "6",
+          "type": "",
+          "uiType": "CIRCULAR_SLIDER",
+          "orientation": "vertical"
+        },
+        {
+          "label": "Totally",
           "type": "",
           "uiType": "CIRCULAR_SLIDER",
           "orientation": "vertical"

@@ -5,14 +5,13 @@
     android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <demo.com.demosurvey.utils.CircularSeekBar xmlns:android="http://schemas.android.com/apk/res/android"
+    <demo.com.demosurvey.views.CircularSeekBar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/circularSeekBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:circle_x_radius="200dp"
         app:circle_y_radius="200dp"
-        app:max="7"
         app:pointer_radius_additional="30dp"
         app:use_custom_radii="true"/>
 </LinearLayout>

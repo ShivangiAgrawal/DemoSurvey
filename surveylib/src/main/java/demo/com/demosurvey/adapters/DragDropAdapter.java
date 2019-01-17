@@ -18,6 +18,7 @@ import java.util.List;
 
 import demo.com.demosurvey.R;
 import demo.com.demosurvey.models.DragPojo;
+import demo.com.demosurvey.models.QuestionPojo;
 
 
 public class DragDropAdapter extends RecyclerView.Adapter<DragDropAdapter.ViewHolder> {
@@ -27,10 +28,12 @@ public class DragDropAdapter extends RecyclerView.Adapter<DragDropAdapter.ViewHo
     private DragPojo currentModel;
     private Drawable enterShape, normalShape;
     private Context context;
+    private QuestionPojo questionPojo;
 
-    public DragDropAdapter(Context context, List<DragPojo> listModels) {
+    public DragDropAdapter(Context context, List<DragPojo> listModels, QuestionPojo question) {
         this.listModels = listModels;
         this.context = context;
+        this.questionPojo = question;
         enterShape = context.getResources().getDrawable(R.drawable.shape_circle_new);
         normalShape = context.getResources().getDrawable(R.drawable.shape_circle_white);
     }
@@ -67,6 +70,16 @@ public class DragDropAdapter extends RecyclerView.Adapter<DragDropAdapter.ViewHo
             circleImageView.setImageResource(model.getImageId());
             circleImageView.setTag(TAG + "" + position);
 
+            StringBuilder stringBuilder = new StringBuilder();
+            if (position >= 5) {
+                stringBuilder.append("position: "+ position);
+                stringBuilder.append("image id: "+ model.getImageId());
+                Log.e(TAG, "Before Drag:::: position " + position);
+                Log.e(TAG, "Before Drag:::: IMage Id's " + model.getImageId());
+
+                questionPojo.setAnswer(stringBuilder.toString());
+            }
+
             circleImageView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -101,7 +114,6 @@ public class DragDropAdapter extends RecyclerView.Adapter<DragDropAdapter.ViewHo
         }
 
         public boolean myDrag(DragPojo model, View view, int position, DragEvent event) {
-            Log.e(TAG, "onDrag method call: " + position + " " + view.getTag().toString());
             int action = event.getAction();
             if (!model.isTarget()) return false;
             switch (action) {
@@ -109,15 +121,12 @@ public class DragDropAdapter extends RecyclerView.Adapter<DragDropAdapter.ViewHo
                     // do nothing
                     break;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    Log.e(TAG, "DRAG CHECK onDrag ENTERED: " + position);
 //                    view.setBackgroundDrawable(enterShape);
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
-                    Log.e(TAG, "DRAG CHECK onDrag EXITED: " + position);
 //                    view.setBackgroundDrawable(normalShape);
                     break;
                 case DragEvent.ACTION_DROP:
-                    Log.e(TAG, "onDrag::::Drag DROP " + model.isDropped());
                     int oldModelImageId = model.getImageId();
                     int oldCurrentModelImageId = currentModel.getImageId();
 
@@ -126,8 +135,7 @@ public class DragDropAdapter extends RecyclerView.Adapter<DragDropAdapter.ViewHo
                             int currentImageId = currentModel.getImageId();
                             currentModel.setImageId(model.getImageId());
                             model.setImageId(currentImageId);
-                        }
-                        else{
+                        } else {
                             return true;
                         }
 //                        return true;

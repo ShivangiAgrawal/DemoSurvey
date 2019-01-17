@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import demo.com.demosurvey.R;
 import demo.com.demosurvey.models.MultiSelectionPojo;
+import demo.com.demosurvey.models.QuestionPojo;
 import demo.com.demosurvey.utils.PopUtils;
 
 public class MultiSelectionAdapter extends RecyclerView.Adapter<MultiSelectionAdapter.ViewHolder> {
@@ -32,11 +34,13 @@ public class MultiSelectionAdapter extends RecyclerView.Adapter<MultiSelectionAd
     private long firstClickTime;
     private Animator mCurrentAnimator;
     private int mShortAnimationDuration;
+    private QuestionPojo questionPojo;
 
-    public MultiSelectionAdapter(Context context, List<MultiSelectionPojo> listModels, String type) {
+    public MultiSelectionAdapter(Context context, List<MultiSelectionPojo> listModels, String type, QuestionPojo question) {
         this.listModels = listModels;
         this.context = context;
         this.type = type;
+        this.questionPojo = question;
         doubleClickTimeout = ViewConfiguration.getDoubleTapTimeout();
         firstClickTime = 0L;
         handler = new Handler(Looper.getMainLooper());
@@ -134,6 +138,15 @@ public class MultiSelectionAdapter extends RecyclerView.Adapter<MultiSelectionAd
             } else {
                 model.setSelected(true);
                 imgSelection.setVisibility(View.VISIBLE);
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i=0; i<listModels.size(); i++){
+                if (listModels.get(i).isSelected()) {
+                    stringBuilder.append(listModels.get(i).getImageId() + "::");
+                    Log.e(TAG, "onDoubleClick:::: Selected id's " + stringBuilder);
+
+                    questionPojo.setAnswer(stringBuilder.toString());
+                }
             }
         }
     }

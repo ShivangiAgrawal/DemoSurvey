@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
 group='com.github.ShivangiAgrawal'
 
 android {
@@ -17,6 +17,84 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+/*publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId  //You can either define these here or get them from project conf elsewhere
+            artifactId 'demosurvey'
+            version '1.1.2'
+            artifact "$buildDir/outputs/aar/surveylib-debug.aar" //aar artifact you want to publish
+
+            //generate pom nodes for dependencies
+            pom.withXml {'com.demo'
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.compile.allDependencies.each { dependency ->
+                    def dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', dependency.group)
+                    dependencyNode.appendNode('artifactId', dependency.name)
+                    dependencyNode.appendNode('version', dependency.version)
+                }
+            }
+        }
+    }
+}*/
+
+publishing {
+    publications {
+        // Create different publications for every build types (debug and release)
+        android.buildTypes.all { variant ->
+            // Dynamically creating publications name
+            "${variant.name}Aar"(MavenPublication) {
+
+                def manifest = new XmlSlurper().parse(project.android.sourceSets.main.manifest.srcFile);
+                def libVersion = '1.1.3'
+                def artifactName = 'demosurvey'
+
+                // Artifact properties
+                groupId 'com.demo'
+                version = libVersion
+                artifactId variant.name == 'debug' ? artifactName + '-dev' : artifactName
+
+                // Tell maven to prepare the generated "*.aar" file for publishing
+                artifact("$buildDir/outputs/aar/${project.getName()}-${variant.name}.aar")
+
+                pom.withXml {
+                    //Creating additional node for dependencies
+                    def dependenciesNode = asNode().appendNode('dependencies')
+
+                    //Defining configuration names from which dependencies will be taken (debugCompile or releaseCompile and compile)
+                    def configurationNames = ["${variant.name}Implementation", 'implementation']
+
+                    configurationNames.each { configurationName ->
+                        configurations[configurationName].allDependencies.each {
+                            if (it.group != null && it.name != null) {
+                                def dependencyNode = dependenciesNode.appendNode('dependency')
+                                dependencyNode.appendNode('groupId', it.group)
+                                dependencyNode.appendNode('artifactId', it.name)
+                                dependencyNode.appendNode('version', it.version)
+
+                                //If there are any exclusions in dependency
+                                if (it.excludeRules.size() > 0) {
+                                    def exclusionsNode = dependencyNode.appendNode('exclusions')
+                                    it.excludeRules.each { rule ->
+                                        def exclusionNode = exclusionsNode.appendNode('exclusion')
+                                        exclusionNode.appendNode('groupId', rule.group)
+                                        exclusionNode.appendNode('artifactId', rule.module)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -30,4 +108,9 @@ dependencies {
 //    implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.mostafagazar:customshapeimageview:1.0.4'
     implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.novoda:bintray-release:0.2.7'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //Volley - Network library
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
 }
+

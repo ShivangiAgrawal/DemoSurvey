@@ -27,7 +27,11 @@ public class Utility {
     }
 
     public static String[] getJsonFilesArray() {
-        String[] jsonFilesArray = new String[]{"survey_question26_circular_slider.json", "survey_question24_circular_multiple_selection.json", "survey_question25_rectangle_multiple_selection.json",
+        String[] jsonFilesArray = new String[]{"survey_question26_circular_slider.json", "survey_question29_custom_shape_triangle.json", "survey_question30_custom_shape_square.json",
+                "survey_question31_custom_shape_pentagon.json", "survey_question32_custom_shape_hexagon.json",
+                "survey_question33_custom_shape_heptagon.json", "survey_question34_custom_shape_octagon.json",
+                "survey_question28_least_most_appealing1.json",
+                "survey_question24_circular_multiple_selection.json", "survey_question25_rectangle_multiple_selection.json",
                 "survey_question23_drag_drop.json", "survey_question22_activities.json", "survey_question1_date_of_birth.json",
                 "survey_question2_gender.json", "survey_question3_relationship_status.json", "survey_question4_sexual_orientation.json",
                 "survey_question5_education.json", "survey_question6_race.json", "survey_question7_origin.json",
@@ -274,5 +278,4 @@ public class Utility {
 
         return countryList;
     }
-
 }

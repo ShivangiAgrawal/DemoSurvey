@@ -19,23 +19,22 @@
           "orientation": "vertical",
           "options": [
             {
-              "label":"Agree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
+              "label": "Agree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Disagree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Disagree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Don't Know",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
+              "label": "Don't Know",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             }
           ]
         },
@@ -47,25 +46,22 @@
           "orientation": "vertical",
           "options": [
             {
-              "label":"Agree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Agree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Disagree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Disagree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Don't Know",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Don't Know",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             }
           ]
         },
@@ -77,25 +73,22 @@
           "orientation": "vertical",
           "options": [
             {
-              "label":"Agree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Agree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Disagree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Disagree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Don't Know",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Don't Know",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             }
           ]
         },
@@ -107,25 +100,22 @@
           "orientation": "vertical",
           "options": [
             {
-              "label":"Agree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Agree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Disagree",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Disagree",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             },
             {
-              "label":"Don't Know",
-              "type":"TEXT_VIEW",
-              "uiType":"RECTANGLE_SINGLE_SELECTION",
-              "orientation":"horizontal"
-
+              "label": "Don't Know",
+              "type": "TEXT_VIEW",
+              "uiType": "RECTANGLE_SINGLE_SELECTION",
+              "orientation": "horizontal"
             }
           ]
         }

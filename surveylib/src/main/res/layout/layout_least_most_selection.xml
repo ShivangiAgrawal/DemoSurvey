@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="0.25"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/layout_least_most_selection_txt_view_least"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:gravity="center"
+            android:textColor="@color/colorWhite" />
+
+        <ImageView
+            android:id="@+id/layout_least_most_selection_img_least"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_check_48"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/layout_least_most_selection_txt_option"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_weight="0.50"
+        android:gravity="center"
+        android:textColor="@color/colorWhite" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="0.25"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/layout_least_most_selection_txt_view_most"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:gravity="center"
+            android:textColor="@color/colorWhite" />
+
+        <ImageView
+            android:id="@+id/layout_least_most_selection_img_most"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_check_48"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -6,11 +6,11 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
+import android.text.InputFilter;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -30,7 +31,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import demo.com.demosurvey.listeners.AllocationTextWatcher;
+import demo.com.demosurvey.listeners.RatingBarListener;
+import demo.com.demosurvey.listeners.SeekBarChangeListener;
 import demo.com.demosurvey.models.OptionsPojo;
 import demo.com.demosurvey.models.QuestionPojo;
 import demo.com.demosurvey.utils.Constants;
@@ -55,15 +60,19 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
     private ScrollView scrollView;
     private int countDragDrop = 0;
     private int countIncDec = 0;
+    private List<EditText> listEditTextTable = new ArrayList<>();
+    private List<SeekBar> listSeekBar = new ArrayList<>();
+    private List<RatingBar> listRatingBar = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native_survey);
 
-        if (surveyCount > 1) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        /*if (surveyCount > 1) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        }*/
 
         linearLayoutMain = findViewById(R.id.activity_main_linear_layout);
         linearLayoutIncDecSubQuestion = findViewById(R.id.layout_inc_dec_linear_layout);
@@ -106,7 +115,9 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                             Log.i(TAG, "Sub Sub Answer: " + subSubQuestionPojo.getAnswer());
                         }
                 }
+
         }
+
     }
 
     private void startSurvey(String file) {
@@ -164,6 +175,12 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                 hasMainOptions = false;
                 if (listSubQuestions.size() != 0) {
                     for (QuestionPojo quesSub : listSubQuestions) {
+                        if (quesSub.getLabel().equalsIgnoreCase("Least Appealing") || quesSub.getLabel().equalsIgnoreCase("Most Appealing")) {
+                            Log.e(TAG, "getCoreQuestionView:::: orientation " + question.getOrientation());
+                            linearLayoutMain.setOrientation(LinearLayout.HORIZONTAL);
+                        } else {
+                            linearLayoutMain.setOrientation(LinearLayout.VERTICAL);
+                        }
                         linearLayoutMain.addView(getCoreQuestionView(quesSub, quesSub.getListOptions(), listSubQuestions));
                         if (listSubSubQuestions.size() != 0) {
                             if (listSubSubQuestions.get(0).getType().equalsIgnoreCase("Increment/Decrement")) {
@@ -177,7 +194,7 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    View getOptionsView(final OptionsPojo optionsPojo, int position) {
+    View getOptionsView(final OptionsPojo optionsPojo, int position, final QuestionPojo question) {
         LinearLayout linearLayoutChildOptions = InflateViews.inflateLinearLayout(this, new int[]{5, 5, 5, 5}, optionsPojo.getOptionsOrientation());
         linearLayoutChildOptions.setBackgroundColor(getResources().getColor(R.color.colorLight));
         RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT,
@@ -189,14 +206,14 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
             case RECTANGLE_SINGLE_SELECTION:
                 radioButton = InflateViews.inflateRadioButton(this, Gravity.CENTER,
                         optionsPojo.getOptionsLabel(), new int[]{0, 0, 0, 20}, new int[]{10, 10, 10, 10}, 0, R.drawable.radio_rectangle_bg,
-                        null, new int[]{0, 0, 0, 0}, 0, 0.0f, layoutParams);
+                        android.R.color.transparent, new int[]{0, 0, 0, 0}, 0, 0.0f, layoutParams);
                 radioButton.setId(position);
                 return radioButton;
 
             case TEXT_SINGLE_SELECTION:
                 radioButton = InflateViews.inflateRadioButton(this, Gravity.CENTER_VERTICAL,
                         optionsPojo.getOptionsLabel(), new int[]{0, 0, 0, 20}, new int[]{10, 10, 10, 10},
-                        getResources().getColor(R.color.colorLight), 0, getResources().getDrawable(R.drawable.radio_text_bg), new int[]{0, 0, 0, 0}, 5, 0.0f, layoutParams);
+                        getResources().getColor(R.color.colorLight), 0, R.drawable.radio_text_bg, new int[]{0, 0, R.drawable.radio_rectangle_bg, 0}, 5, 0.0f, layoutParams);
                 radioButton.setId(position);
                 return radioButton;
 
@@ -213,7 +230,7 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                 stateListDrawable.addState(new int[]{}, rectangleUnSelectedDrawable);
 
                 radioButton = InflateViews.inflateRadioButtonThumb(this, Gravity.CENTER, "",
-                        new int[]{0, 0, 0, 20}, new int[]{20, 20, 20, 20}, 0, stateListDrawable, null,
+                        new int[]{0, 0, 0, 20}, new int[]{20, 20, 20, 20}, 0, stateListDrawable, android.R.color.transparent,
                         new int[]{0, Utility.getThumbImagesArray()[position], 0, 0}, 5, 0.001f, layoutParams);
                 radioButton.setId(position);
                 return radioButton;
@@ -234,7 +251,7 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                 stateListDrawable1.addState(new int[]{}, layerListUnselected);
 
                 RadioButton radioButton3 = InflateViews.inflateRadioButtonSmileys(this, Gravity.CENTER, optionsPojo.getOptionsLabel(),
-                        new int[]{5, 5, 5, 5}, new int[]{5, 5, 5, 5}, 0, 0, null, new Drawable[]{null,
+                        new int[]{5, 5, 5, 5}, new int[]{5, 5, 5, 5}, 0, 0, android.R.color.transparent, new Drawable[]{null,
                                 stateListDrawable1, null, null}, 5, 12.0f, layoutParams);
                 radioButton3.setId(position);
                 return radioButton3;
@@ -244,14 +261,14 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                         getResources().getColor(R.color.colorWhite), Gravity.CENTER, optionsPojo.getOptionsLabel(),
                         getResources().getColor(R.color.colorWhite), true, false,
                         false,
-                        new int[]{0, 0, R.drawable.icons8_sort_26, 0});
+                        new int[]{0, 0, R.drawable.icons8_sort_26, 0}, question);
 
                 editTextCountry.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         countryList = Utility.getCountryList();
-                        alertDialog = InflateViews.inflateDialog(NativeSurveyActivity.this, countryList, editTextCountry,
-                                optionsPojo.getOptionsLabel());
+                        alertDialog = InflateViews.inflateDialog(NativeSurveyActivity.this, countryList,
+                                editTextCountry, optionsPojo.getOptionsLabel(), question);
                     }
                 });
                 linearLayoutChildOptions.addView(editTextCountry);
@@ -261,11 +278,12 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                 final EditText editTextDatePicker = InflateViews.inflateEditText(this,
                         getResources().getColor(R.color.colorWhite), Gravity.CENTER, optionsPojo.getOptionsLabel(),
                         getResources().getColor(R.color.colorWhite), true, false, false,
-                        new int[]{0, 0, R.drawable.icons8_sort_26, 0});
+                        new int[]{0, 0, R.drawable.icons8_sort_26, 0}, question);
 
-                InflateViews.inflateDatePicker(this, editTextDatePicker);
+                InflateViews.inflateDatePicker(this, editTextDatePicker, question);
                 linearLayoutChildOptions.addView(editTextDatePicker);
                 return linearLayoutChildOptions;
+
         }
         return null;
     }
@@ -278,7 +296,8 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
 
         TextView txtViewMainQuestion, txtViewLabels;
 
-        if (listOptions.size() != 0 && listOptions.get(0).getOptionsUIType().equalsIgnoreCase("CIRCULAR_SLIDER")) {
+        if (listOptions.size() != 0 && ((listOptions.get(0).getOptionsUIType().equalsIgnoreCase("CIRCULAR_SLIDER")
+                || listOptions.get(0).getOptionsUIType().equalsIgnoreCase(Constants.CUSTOM_VIEW)))) {
             scrollView.setFillViewport(true);
         } else {
             scrollView.setFillViewport(false);
@@ -292,49 +311,71 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
             case DRAG_DROP:
                 Log.e(TAG, "getCoreQuestionView: count drag" + countDragDrop);
                 if (countDragDrop == 0) {
-                    RecyclerView recyclerViewDragDrop = InflateViews.inflateRecyclerDragDrop(this);
+                    RecyclerView recyclerViewDragDrop = InflateViews.inflateRecyclerDragDrop(this, question);
                     linearLayoutChildQuestions.addView(recyclerViewDragDrop);
                     countDragDrop++;
                 }
                 return linearLayoutChildQuestions;
             case TEXT_VIEW:
                 if (!hasMainOptions) {
+                    int bgColor;
+                    if (question.getLabel().equalsIgnoreCase("Least Appealing") || question.getLabel().equalsIgnoreCase("Most Appealing")) {
+                        Log.e(TAG, "getCoreQuestionView:::: orientation " + question.getOrientation());
+                        bgColor = 0;
+                        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
+                        linearLayoutChildQuestions.setLayoutParams(params1);
+                        linearLayoutMain.setOrientation(LinearLayout.HORIZONTAL);
+                    } else {
+                        bgColor = getResources().getColor(R.color.colorLight);
+                        linearLayoutChildQuestions.setLayoutParams(params);
+                        linearLayoutMain.setOrientation(LinearLayout.VERTICAL);
+                    }
                     txtViewMainQuestion = InflateViews.inflateTextView(this, Gravity.CENTER, question.getLabel(),
-                            getResources().getColor(R.color.colorLight), new int[]{50, 50, 50, 50});
+                            bgColor, new int[]{50, 50, 50, 50});
                     linearLayoutChildQuestions.addView(txtViewMainQuestion);
                 }
 
                 if (listOptions.size() > 0) {
                     if (listOptions.get(0).getOptionsUIType().contains(Constants.SINGLE_SELECTION)) {
-                        RadioGroup radioGroup = InflateViews.inflateRadioGroup(this, listOptions.get(0).getOptionsOrientation());
+                        RadioGroup radioGroup = InflateViews.inflateRadioGroup(this,
+                                listOptions.get(0).getOptionsOrientation(), question);
                         for (int i = 0; i < listOptions.size(); i++) {
-                            RadioButton radioButton = (RadioButton) getOptionsView(listOptions.get(i), i);
+                            RadioButton radioButton = (RadioButton) getOptionsView(listOptions.get(i), i, question);
                             radioGroup.addView(radioButton);
                         }
+
                         linearLayoutChildQuestions.addView(radioGroup);
                         params.setMargins(0, 0, 0, 30);
                         linearLayoutChildQuestions.setLayoutParams(params);
                     } else if (listOptions.get(0).getOptionsUIType().contains(Constants.LIST_VIEW)) {
                         for (int i = 0; i < listOptions.size(); i++) {
-                            linearLayoutChildQuestions.addView(getOptionsView(listOptions.get(i), i));
+                            linearLayoutChildQuestions.addView(getOptionsView(listOptions.get(i), i, question));
                         }
                     } else if (listOptions.get(0).getOptionsUIType().contains(Constants.DATE_PICKER)) {
                         for (int i = 0; i < listOptions.size(); i++) {
-                            linearLayoutChildQuestions.addView(getOptionsView(listOptions.get(i), i));
+                            linearLayoutChildQuestions.addView(getOptionsView(listOptions.get(i), i, question));
                         }
                     } else if (listOptions.get(0).getOptionsUIType().contains(Constants.MULTIPLE_SELECTION)) {
                         txtViewLabels = InflateViews.inflateTextView(this, Gravity.CENTER, getString(R.string.drag_drop_description),
                                 getResources().getColor(R.color.colorLight), new int[]{10, 10, 10, 30});
                         linearLayoutChildQuestions.addView(txtViewLabels);
-                        RecyclerView recyclerView = InflateViews.inflateRecyclerMultiSelection(this, listOptions.get(0).getOptionsUIType());
+                        RecyclerView recyclerView = InflateViews.inflateRecyclerMultiSelection(this, listOptions.get(0).getOptionsUIType(), question);
                         linearLayoutChildQuestions.addView(recyclerView);
                     } else if (listOptions.get(0).getOptionsUIType().equalsIgnoreCase(Constants.CIRCULAR_SLIDER)) {
                         Log.e(TAG, "getCoreQuestionView: Circular Slider");
-                        View view = InflateViews.inflateCircularSeekBar(this, linearLayoutChildQuestions);
+                        View view = InflateViews.inflateCircularSeekBar(this, linearLayoutChildQuestions, listOptions, question);
                         linearLayoutChildQuestions.removeAllViews();
                         linearLayoutChildQuestions.addView(view);
+                    } else if (listOptions.get(0).getOptionsUIType().equalsIgnoreCase(Constants.VIEW_RECTANGLE_SELECTION)) {
+                        RecyclerView recyclerViewRectangle = InflateViews.inflateRecyclerRectangleSelection(this,
+                                listOptions, question);
+                        linearLayoutChildQuestions.addView(recyclerViewRectangle);
+                    } else if (listOptions.get(0).getOptionsUIType().equalsIgnoreCase(Constants.CUSTOM_VIEW)) {
+                        ConstraintLayout constraintLayout = InflateViews.inflateConstraintLayout(this, listOptions, question);
+                        linearLayoutChildQuestions.addView(constraintLayout);
                     }
                 }
+
                 return linearLayoutChildQuestions;
             case SLIDER:
                 if (!hasMainOptions) {
@@ -343,28 +384,36 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                     linearLayoutChildQuestions.addView(txtViewLabels);
                 }
 
-                SeekBar seekBar = InflateViews.inflateLinearSlider(this);
+                SeekBar seekBar = InflateViews.inflateLinearSlider(this, listSubQuestions, question);
                 params.setMargins(5, 5, 5, 5);
                 linearLayoutChildQuestions.setLayoutParams(params);
                 linearLayoutChildQuestions.setBackgroundColor(getResources().getColor(R.color.colorLight));
+                listSeekBar.add(seekBar);
+                seekBar.setOnSeekBarChangeListener(new SeekBarChangeListener(this, question, listSeekBar,
+                        listSubQuestions));
                 linearLayoutChildQuestions.addView(seekBar);
                 return linearLayoutChildQuestions;
 
             case RATING_BAR:
                 if (!hasMainOptions) {
-                    txtViewLabels = InflateViews.inflateTextView(this, Gravity.LEFT, question.getLabel(),
+                    txtViewLabels = InflateViews.inflateTextView(this, Gravity.START, question.getLabel(),
                             getResources().getColor(R.color.colorLight), new int[]{50, 50, 50, 50});
                     linearLayoutChildQuestions.addView(txtViewLabels);
                 }
 
-                View ratingBar = InflateViews.inflateRatingsBar(this);
+                View viewRatingBar = InflateViews.inflateRatingsBar(this);
+                RatingBar ratingBar = viewRatingBar.findViewById(R.id.component_rating_bar_rb);
+                listRatingBar.add(ratingBar);
                 params.setMargins(5, 20, 5, 20);
                 linearLayoutChildQuestions.setLayoutParams(params);
-                linearLayoutChildQuestions.addView(ratingBar);
+                linearLayoutChildQuestions.addView(viewRatingBar);
+
+                ratingBar.setOnRatingBarChangeListener(new RatingBarListener(this, listRatingBar, listSubQuestions));
 
                 return linearLayoutChildQuestions;
 
             case TABLE_VIEW:
+                linearLayoutMain.setOrientation(LinearLayout.VERTICAL);
                 countTableQuestions++;
                 final View[] view = InflateViews.inflateTableLayout(this, question.getLabel());
                 params.setMargins(5, 0, 5, 5);
@@ -372,6 +421,7 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                 linearLayoutChildQuestions.addView(view[0]);
 
                 EditText edtAnswer = view[0].findViewById(R.id.component_table_view_edtAnswer);
+                listEditTextTable.add(edtAnswer);
                 edtAnswer.setInputType(InputType.TYPE_CLASS_NUMBER);
                 edtAnswer.setSingleLine(true);
                 edtAnswer.setMaxLines(1);
@@ -380,22 +430,27 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
 
                 if (countTableQuestions == listSubQuestions.size()) {
                     linearLayoutChildQuestions.addView(view[1]);
-                }
+                    EditText edtAnswerRemaining = view[1].findViewById(R.id.component_table_view_edtAnswerRemaining);
+                    EditText edtAnswerTotal = view[1].findViewById(R.id.component_table_view_edtAnswerTotal);
 
-                EditText edtAnswerRemaining = view[1].findViewById(R.id.component_table_view_edtAnswerRemaining);
-                EditText edtAnswerTotal = view[1].findViewById(R.id.component_table_view_edtAnswerTotal);
-                edtAnswerTotal.setText(total + "");
-                edtAnswerRemaining.setText(24 - total + "");
+                    edtAnswerTotal.setText(String.valueOf(total));
+                    edtAnswerRemaining.setText(String.valueOf(24 - total));
+
+                    listEditTextTable.add(edtAnswerTotal);
+                    listEditTextTable.add(edtAnswerRemaining);
+                }
+                edtAnswer.addTextChangedListener(new AllocationTextWatcher(this, edtAnswer, listEditTextTable,
+                        listSubQuestions));
 
                 return linearLayoutChildQuestions;
 
             case TEXT_INPUT:
-                txtViewLabels = InflateViews.inflateTextView(this, Gravity.LEFT, question.getLabel(),
+                txtViewLabels = InflateViews.inflateTextView(this, Gravity.START, question.getLabel(),
                         getResources().getColor(R.color.colorLight), new int[]{10, 10, 10, 30});
                 linearLayoutChildQuestions.addView(txtViewLabels);
                 EditText edtTextInput = InflateViews.inflateEditText(this, getResources().getColor(R.color.colorBlack),
-                        Gravity.LEFT, "Yay, I love typing...", getResources().getColor(R.color.colorBlack), true,
-                        true, true, new int[]{0, 0, 0, 0});
+                        Gravity.START, "Yay, I love typing...", getResources().getColor(R.color.colorBlack), true,
+                        true, true, new int[]{0, 0, 0, 0}, question);
 
                 params.setMargins(0, 100, 0, 0);
                 linearLayoutChildQuestions.setLayoutParams(params);
@@ -404,36 +459,24 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                 return linearLayoutChildQuestions;
 
             case TEXT_INPUT_RECTANGLE_BOX:
-                txtViewLabels = InflateViews.inflateTextView(this, Gravity.LEFT, question.getLabel(),
+                txtViewLabels = InflateViews.inflateTextView(this, Gravity.START, question.getLabel(),
                         getResources().getColor(android.R.color.transparent), new int[]{10, 10, 10, 30});
                 linearLayoutChildQuestions.addView(txtViewLabels);
 
-                EditText edtTextInputRectangle = InflateViews.inflateEditText(this, getResources().getColor(R.color.colorWhite),
+                final EditText edtTextInputRectangle = InflateViews.inflateEditText(this, getResources().getColor(R.color.colorWhite),
                         Gravity.CENTER, "", getResources().getColor(R.color.colorBlack), true, true,
-                        true, new int[]{0, 0, 0, 0});
+                        true, new int[]{0, 0, 0, 0}, question);
                 if (!question.getLabel().equalsIgnoreCase("")) {
                     edtTextInputRectangle.setInputType(InputType.TYPE_CLASS_NUMBER);
                 }
                 edtTextInputRectangle.setSingleLine(true);
                 edtTextInputRectangle.setMaxLines(1);
-                edtTextInputRectangle.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (question.getLabel().equalsIgnoreCase("*Zip")) {
+                    InputFilter[] filterArray = new InputFilter[1];
+                    filterArray[0] = new InputFilter.LengthFilter(6);
+                    edtTextInputRectangle.setFilters(filterArray);
+                }
 
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-                        String answer = editable.toString();
-
-                        question.setAnswer(answer);
-                    }
-                });
                 LinearLayout layoutChildQuestions1 = InflateViews.inflateLinearLayout(this, new int[]{5, 5, 5, 5}, question.getOrientation());
                 layoutChildQuestions1.setBackgroundColor(getResources().getColor(R.color.colorLight));
                 params.gravity = Gravity.CENTER_HORIZONTAL;
@@ -453,19 +496,23 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
         countDragDrop = 0;
         countIncDec = 0;
         total = 0;
+        listEditTextTable = new ArrayList<>();
+        listSeekBar = new ArrayList<>();
+        listRatingBar = new ArrayList<>();
 
         if (surveyCount >= 1) {
             surveyCount--;
             Log.e(TAG, "onBackPressed:::Survey Count " + (surveyCount));
             if (surveyCount > 0) {
                 startSurvey(Utility.getJsonFilesArray()[surveyCount - 1]);
-                if (surveyCount - 1 == 0) {
+               /* if (surveyCount - 1 == 0) {
                     getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                }
+                }*/
             }
 
             if (surveyCount == 0) {
                 surveyCount++;
+                finish();
             }
 
             if (surveyCount <= (Utility.getJsonFilesArray().length - 1)) {
@@ -475,7 +522,6 @@ public class NativeSurveyActivity extends AppCompatActivity implements View.OnCl
                 btnNext.setClickable(true);
             }
         }
-
     }
 
     @Override
